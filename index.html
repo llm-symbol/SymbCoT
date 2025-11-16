@@ -2,10 +2,10 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="MuSLR: Multimodal Symbolic Logical Reasoning — benchmark and framework (LogiCAM) across PL, FOL, NM.">
-  <meta name="keywords" content="MuSLR, multimodal reasoning, symbolic logic, PL, FOL, NM, LogiCAM">
+  <meta name="description" content="SymbCoT: Faithful Logical Reasoning via Symbolic Chain-of-Thought — a fully LLM-based neuro-symbolic reasoning framework.">
+  <meta name="keywords" content="SymbCoT, symbolic chain-of-thought, logical reasoning, FOL, constraint optimization, ACL 2024">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MuSLR: Multimodal Symbolic Logical Reasoning</title>
+  <title>SymbCoT: Faithful Logical Reasoning via Symbolic Chain-of-Thought</title>
 
   <!-- Fonts & CSS (same look-and-feel as Nerfies) -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
@@ -42,10 +42,7 @@
         <a class="navbar-link">Sections</a>
         <div class="navbar-dropdown">
           <a class="navbar-item" href="#intro">Introduction</a>
-          <a class="navbar-item" href="#task">Task Definition</a>
-          <a class="navbar-item" href="#stats">Dataset Statistics</a>
-          <a class="navbar-item" href="#construction">Data Construction</a>
-          <a class="navbar-item" href="#logicam">LogiCAM</a>
+          <a class="navbar-item" href="#method">Method</a>
           <a class="navbar-item" href="#experiments">Experiments</a>
           <a class="navbar-item" href="#bibtex">BibTeX</a>
         </div>
@@ -60,56 +57,46 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">MuSLR: Multimodal Symbolic Logical Reasoning</h1>
+          <h1 class="title is-1 publication-title">Faithful Logical Reasoning via Symbolic Chain-of-Thought (SymbCoT)</h1>
 
           <!-- Authors -->
           <div class="is-size-5 publication-authors">
             <span class="author-block"><a href="https://aiden0526.github.io/JundongXu/"><b>Jundong Xu</b></a><sup>1</sup>,</span>
             <span class="author-block"><a href="http://haofei.vip/"><b>Hao Fei</b></a><sup>1</sup><sup>*</sup>,</span>
-            <span class="author-block"><a href="https://cs.stanford.edu/~yuhuiz/"><b>Yuhui Zhang</b></a><sup>2</sup>,</span>
-            <span class="author-block"><a href="http://www.liangmingpan.com/"><b>Liangming Pan</b></a><sup>3</sup>,</span>
-            <span class="author-block">Qijun Huang<sup>4</sup>,</span>
-            <span class="author-block"><a href="https://profiles.auckland.ac.nz/liu-qian"><b>Qian Liu</b></a><sup>5</sup>,</span>
-            <span class="author-block"><a href="https://mbzuai.ac.ae/study/faculty/preslav-nakov/"><b>Preslav Nakov</b></a><sup>6</sup>,</span>
-            <span class="author-block"><a href="https://sites.cs.ucsb.edu/~william/"><b>William Yang Wang</b></a><sup>7</sup>,</span>
+            <span class="author-block"><a href="http://www.liangmingpan.com/"><b>Liangming Pan</b></a><sup>2</sup>,</span>
+            <span class="author-block"><a href="https://profiles.auckland.ac.nz/liu-qian"><b>Qian Liu</b></a><sup>3</sup>,</span>
             <span class="author-block"><a href="https://www.comp.nus.edu.sg/cs/people/leeml/"><b>Mong-Li Lee</b></a><sup>1</sup>,</span>
             <span class="author-block"><a href="https://www.comp.nus.edu.sg/cs/people/whsu/"><b>Wynne Hsu</b></a><sup>1</sup></span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>National University of Singapore,</span>
-            <span class="author-block"><sup>2</sup>Stanford University,</span>
-            <span class="author-block"><sup>3</sup>University of Arizona,</span>
-            <span class="author-block"><sup>4</sup>UniMelb,</span>
-            <span class="author-block"><sup>5</sup>University of Auckland,</span>
-            <span class="author-block"><sup>6</sup>MBZUAI,</span>
-            <span class="author-block"><sup>7</sup>University of California, Santa Barbara</span>
+            <span class="author-block"><sup>2</sup>University of California, Santa Barbara,</span>
+            <span class="author-block"><sup>3</sup>University of Auckland</span>
           </div>
-          <div class="is-size-5 has-text-weight-bold" style="margin-top: 0.25rem;">(NeurIPS 2025)</div>
+          <div class="is-size-5 has-text-weight-bold" style="margin-top: 0.25rem;">(ACL 2024 Main)</div>
 
           <!-- Buttons (same style as Nerfies) -->
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://nips.cc/virtual/2025/poster/115490" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="ai ai-neurips"></i></span><span>NeurIPS Page</span>
+                <a href="https://aclanthology.org/2024.acl-long.720/" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-acl"></i></span><span>ACL 2024</span>
                 </a>
               </span>
               <span class="link-block">
-                <!-- TODO: replace with real arXiv link -->
-                <a href="https://arxiv.org/abs/TODO" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://arxiv.org/abs/2405.18357" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="ai ai-arxiv"></i></span><span>arXiv</span>
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/Aiden0526/MuSLR" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/Aiden0526/SymbCoT" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
                 </a>
               </span>
               <span class="link-block">
-                <!-- TODO: replace with HF link -->
-                <a href="https://huggingface.co/datasets/TODO" class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon"><i class="far fa-images"></i></span><span>Dataset</span>
+                <a href="https://github.com/Aiden0526/SymbCoT/tree/main/data" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="far fa-folder-open"></i></span><span>Data</span>
                 </a>
               </span>
               <span class="link-block">
@@ -126,177 +113,123 @@
   </div>
 </section>
 
-<!-- Teaser (image instead of video, same styling block) -->
-<section class="hero teaser">
+<!-- Teaser (keep template, simple placeholder) -->
+<!-- <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: replace with your teaser -->
-      <img src="./static/images/muslr.png" alt="MuSLR teaser" style="width:100%; border-radius:8px;">
-      <h2 class="subtitle has-text-centered">MuSLR overview — benchmark & framework for multimodal symbolic logical reasoning.</h2>
+    <div class="hero-body"> -->
+      <!-- TODO: replace with a nice overall SymbCoT teaser -->
+      <!-- <img src="./static/images/teaser_placeholder.png" alt="SymbCoT teaser placeholder" style="width:100%; border-radius:8px;">
+      <h2 class="subtitle has-text-centered">
+        High-level illustration of SymbCoT: a fully LLM-based framework that couples symbolic logic with chain-of-thought prompting.
+      </h2>
     </div>
   </div>
-</section>
+</section> -->
 
-<!-- ===== Introduction -->
+<!-- ===== Introduction (abstract + placeholder figure) -->
 <section class="section" id="intro">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Introduction</h2>
+        <h2 class="title is-3 has-text-centered">Introduction</h2>
         <div class="content has-text-justified">
-          <p>
-            Multimodal symbolic logical reasoning, which aims to deduce new facts from multimodal input via formal logic,
-            is critical in high-stakes applications such as autonomous driving and medical diagnosis, as its rigorous,
-            deterministic reasoning helps prevent serious consequences. To evaluate such capabilities of current
-            state-of-the-art vision language models (VLMs), we introduce the first benchmark <b>MuSLR</b> for
-            multimodal symbolic logical reasoning grounded in formal logical rules. MuSLR comprises <b>1,093</b> instances
-            across <b>7</b> domains, including <b>35</b> atomic symbolic logic and <b>976</b> logical combinations, with reasoning depths
-            ranging from <b>2</b> to <b>9</b>. We evaluate 7 state-of-the-art VLMs on MuSLR and find that they all struggle
-            with multimodal symbolic reasoning, with the best model, GPT-4.1, achieving only <b>46.8%</b>.
-          </p>
+          While the recent Chain-of-Thought (CoT) technique enhances the reasoning ability of large language models (LLMs) with the theory of mind, it might still struggle in handling logical reasoning that relies much on symbolic expressions and rigid deducing rules. To strengthen the logical reasoning capability of LLMs, we propose a novel Symbolic Chain-of-Thought, namely SymbCoT, a fully LLM-based framework that integrates symbolic expressions and logic rules with CoT prompting. Technically, building upon an LLM, SymbCoT 1) first translates the natural language context into the symbolic format, and then 2) derives a step-by-step plan to solve the problem with symbolic logical rules, 3) followed by a verifier to check the translation and reasoning chain. Via thorough evaluations on 5 standard datasets with both First-Order Logic and Constraint Optimization symbolic expressions, SymbCoT shows striking improvements over the CoT method consistently, meanwhile refreshing the current stateof-the-art performances. We further demonstrate that our system advances in more faithful, flexible, and explainable logical reasoning. To our knowledge, this is the first to combine symbolic expressions and rules into CoT for logical reasoning with LLMs.
+        </div>
+
+        <!-- Intro figure placeholder -->
+        <div class="content has-text-centered" style="margin-top: 1.5rem;">
+          <!-- TODO: replace with the main illustrative example from the paper -->
+          <img src="./static/images/symbcot-intro.png"
+               alt="Introductory SymbCoT example placeholder"
+               style="width:80%; max-width:1000px; border-radius:8px;">
+          <!-- <p class="has-text-grey is-size-6" style="margin-top: 0.5rem;"> -->
+            <!-- Figure placeholder: an illustrative example comparing vanilla CoT vs. SymbCoT on a logical reasoning task. -->
+          <!-- </p> -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Task Definition (exact wording, plain text) -->
-<section class="section" id="task">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Task Definition</h2>
-        <div class="content has-text-justified">
-          <p>
-            The proposed tasks require models to integrate information from both an image I and a text passage
-            T to perform reasoning, ensuring that neither modality alone is sufficient for correct inference. The
-            tasks explicitly emphasize multimodal reasoning, where the fusion of visual and textual context is
-            essential for deriving accurate and consistent conclusions.
-          </p>
-          <p>
-            <b>Task-I: Truth Evaluation (True/False/Unknown) Question.</b> Given an image I, a text passage
-            T , and an argument A, the model must determine the truth value of the argument based on the
-            combined information from I and T . Specifically, the model outputs the truth value Truth(A) ∈
-            {True, False, Unknown} and generates a sequence of reasoning steps R = {R1, R2, . . . , Rn}, where
-            each Ri represents an individual step that contributes to the final decision. Formally, the input is a
-            triplet (I, T, A), and the output consists of Truth(A) and R.
-          </p>
-          <p>
-            <b>Task-II: Multiple Choice Question.</b> Given an image I, a text passage T , and candidate arguments
-            {A1, A2, A3, A4}, the model must select the argument that best matches the image and text, denoted
-            as BestArgument(I, T ) ∈ {A1, A2, A3, A4}. Additionally, the model must provide detailed reason-
-            ing steps R = {R1, R2, . . . , Rn}, where each Ri details a step in the reasoning process. Formally,
-            the input is a triplet (I, T, {A1, A2, A3, A4}), and the output consists of BestArgument(I, T ) and R.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Dataset Statistics -->
-<section class="section" id="stats">
+<!-- ===== Method (brief + placeholder) -->
+<section class="section" id="method">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Dataset Statistics</h2>
-        <div class="content has-text-centered">
-          <!-- TODO: replace with your stats figure -->
-          <img src="./static/images/stats.png" alt="Dataset statistics" style="width:100%; max-width:1000px; border-radius:8px;">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ===== Data Construction -->
-<section class="section" id="construction">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Data Construction</h2>
-
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Method</h2>
         <div class="content has-text-justified">
           <p>
-            We collect images from various sources such as COCO, Flickr30k, nocaps, MIMIC, RVL_CDIP, ScienceQA,
-            and manually collected Traffic Reports. Visual details for each image are extracted using GPT-4o, ensuring
-            diverse and fine-grained descriptions. We carefully select non-trivial logical inference rules, such as
-            Modus Ponens and Hypothetical Syllogism, drawn from propositional logic (PL), first-order logic (FOL),
-            and non-monotonic logic (NM). These rules then form meaningful but abstract reasoning chains through
-            logical combinations. The abstract chains are grounded in real-world contexts by leveraging extracted
-            visual features and relevant retrieved text from sources like healthcare, traffic reports, and Wikipedia.
-            Questions and answers are then generated based on these instantiated reasoning chains, using rule-based
-            substitution.
-          </p>
-          <p>
-            To ensure the quality and relevance of the dataset, both automatic and manual quality control procedures
-            are employed. Automatic checks include assessing lexical similarity and commonsense plausibility, while
-            human annotators verify the accuracy of visual details and the real-world relevance of the generated context.
-            Instances that fail these checks are filtered out, ensuring a high-quality, logically sound, and contextually
-            relevant dataset.
+            <b>SymbCoT</b> is a neuro-symbolic reasoning framework that keeps everything inside the LLM. It decomposes logical
+            reasoning into three key stages: (1) a <b>Translator</b> maps natural language premises and questions into symbolic
+            expressions (FOL or CO); (2) a <b>plan-then-solve</b> stage uses the LLM as a <b>Planner</b> to outline symbolic inference
+            steps and a <b>Solver</b> to execute them as a symbolic chain-of-thought; and (3) a <b>Verifier</b> retrospectively checks
+            both the faithfulness of the symbolic translation and the validity of each reasoning step. All modules are
+            implemented via prompting the same backbone LLM, avoiding external solvers while tightly coupling natural
+            language, symbolic forms, and formal logical rules.
           </p>
         </div>
 
-        <!-- NEW: Data Construction Image -->
-        <div class="content has-text-centered" style="margin-top: 1.25rem;">
-          <!-- TODO: replace with your actual figure filename if different -->
-          <img src="./static/images/data_construction.png"
-               alt="Data construction pipeline"
+        <!-- Method figure placeholder -->
+        <div class="content has-text-centered" style="margin-top: 1.5rem;">
+          <!-- TODO: replace with the SymbCoT framework diagram (Translator / Planner / Solver / Verifier) -->
+          <img src="./static/images/symbcot-method.png"
+               alt="SymbCoT method / framework placeholder"
                style="width:100%; max-width:1000px; border-radius:8px;">
-          <p class="has-text-grey is-size-6" style="margin-top: 0.5rem;">
-            Figure: Data construction pipeline and quality control overview (placeholder).
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ===== LogiCAM (image only) -->
-<section class="section" id="logicam">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">LogiCAM</h2>
-        <div class="content has-text-centered">
-          <!-- TODO: replace with your LogiCAM figure -->
-          <img src="./static/images/logicam (1).png" alt="LogiCAM overview" style="width:100%; max-width:1000px; border-radius:8px;">
+          <!-- <p class="has-text-grey is-size-6" style="margin-top: 0.5rem;">
+            Figure placeholder: SymbCoT framework with Translator, Planner, Solver and Verifier modules.
+          </p> -->
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Experiments (image placeholder) -->
+<!-- ===== Experiments (placeholder) -->
 <section class="section" id="experiments">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-      <div class="column is-full-width">
+      <div class="column is-four-fifths">
         <h2 class="title is-3 has-text-centered">Experiments</h2>
-        <div class="content has-text-centered">
-          <!-- TODO: replace with your compiled experiments figure -->
-          <img src="./static/images/experiments.png" alt="Experiments summary" style="width:100%; max-width:1000px; border-radius:8px;">
+        <div class="content has-text-justified">
+          <p>
+            The paper evaluates SymbCoT on <b>five logical reasoning benchmarks</b> that cover both First-Order Logic and
+            Constraint Optimization settings (e.g., PrOntoQA, ProofWriter, FOLIO, LogicalDeduction, AR-LSAT), comparing
+            against vanilla CoT and strong neuro-symbolic baselines. SymbCoT yields substantial accuracy gains, especially
+            on problems that require deeper, more structured reasoning, and produces reasoning chains that are more
+            logically faithful and easier to inspect.
+          </p>
         </div>
+
+        <!-- Experiments figure placeholder -->
+        <div class="content has-text-centered" style="margin-top: 1.5rem;">
+          <!-- TODO: replace with main result tables / plots from the paper -->
+          <img src="./static/images/symbcot-exp.png"
+               alt="SymbCoT experiments / results placeholder"
+               style="width:60%; max-width:1000px; border-radius:8px;">
+          <!-- <p class="has-text-grey is-size-6" style="margin-top: 0.5rem;">
+            Figure placeholder: aggregated results showing SymbCoT vs. CoT and other baselines across five benchmarks.
+          </p> -->
+        </div>
+        <p class="has-text-justified" style="margin-bottom: 1rem;">
+      <b>For more details and analysis, please refer to the paper and supplementary materials provided in the project page.</b>
+    </p>
       </div>
     </div>
   </div>
 </section>
+
+
 
 <!-- ===== BibTeX -->
 <section class="section" id="bibtex">
   <div class="container is-max-desktop content">
     <h2 class="title is-3 has-text-centered">BibTeX</h2>
     <pre><code>@inproceedings{
-    author={Jundong Xu and Hao Fei and Yuhui Zhang and Liangming Pan and Qijun Huang and
-            Qian Liu and Preslav Nakov and Min-Yen Kan and William Yang Wang and
-            Mong-Li Lee and Wynne Hsu},
-    title={Multimodal Symbolic Logical Reasoning},
-    booktitle={Proceedings of the Annual Conference on Neural Information Processing Systems},
-    year={2025},
-    url={https://nips.cc/virtual/2025/poster/115490}
+    author={Jundong Xu and Hao Fei and Liangming Pan and Qian Liu and Mong-Li Lee and Wynne Hsu},
+    title={Faithful Logical Reasoning via Symbolic Chain-of-Thought},
+    booktitle={The 62nd Annual Meeting of the Association for Computational Linguistics},
+    year={2024},
+    url={https://arxiv.org/abs/2405.18357}
 }</code></pre>
   </div>
 </section>
@@ -306,10 +239,10 @@
   <div class="container">
     <div class="content has-text-centered">
       <!-- If you add your PDF later, update the link below -->
-      <a class="icon-link" href="#">
+      <a class="icon-link" href="https://aclanthology.org/2024.acl-long.720.pdf">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/llm-symbol/MuSLR" class="external-link">
+      <a class="icon-link" href="https://github.com/Aiden0526/SymbCoT" class="external-link">
         <i class="fab fa-github"></i>
       </a>
     </div>
