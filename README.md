@@ -1,1 +1,1 @@
-# MuSLR
+# SymbCoT
